@@ -1,0 +1,21 @@
+{
+    "name": "um-flint/mailman-connector",
+    "description": "A PHP package to manage users in mailman.",
+    "require": {
+        "php": ">=7.1.0",
+        "illuminate/support": "5.5.*",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "UMFlint\\Mailman\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Donald Wilcox",
+            "email": "dowilcox@umflint.edu"
+        }
+    ]
+}
