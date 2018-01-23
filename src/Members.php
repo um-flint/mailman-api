@@ -101,7 +101,7 @@ class Members extends Endpoint
         }
         
         return $this->clientPost('members', [
-            'json' => $data,
+            'form_params' => $data,
         ]);
     }
     

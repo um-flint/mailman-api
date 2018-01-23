@@ -117,7 +117,7 @@ class DomainsTest extends \PHPUnit\Framework\TestCase
         ];
         
         $this->client->allows()->post('domains', [
-            'json' => [
+            'form_params' => [
                 'mail_host'   => 'http://test-domain.edu',
                 'description' => 'This is a description of a test domain...',
             ],

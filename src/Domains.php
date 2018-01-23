@@ -96,7 +96,7 @@ class Domains extends Endpoint
         $this->validateDomain($domain);
         
         return $this->clientPost('domains', [
-            'json' => [
+            'form_params' => [
                 'mail_host'   => $domain,
                 'description' => $description ?? '',
             ],

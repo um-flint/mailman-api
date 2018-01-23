@@ -74,7 +74,7 @@ class Users extends Endpoint
         }
         
         return $this->clientPost('users', [
-            'json' => $data,
+            'form_params' => $data,
         ]);
     }
     
@@ -93,7 +93,7 @@ class Users extends Endpoint
         $this->validateEmail($email);
         
         return $this->clientPatch("users/{$email}", [
-            'json' => [
+            'form_params' => [
                 'display_name' => $displayName,
             ],
         ]);
@@ -114,7 +114,7 @@ class Users extends Endpoint
         $this->validateEmail($email);
         
         return $this->clientPatch("users/{$email}", [
-            'json' => [
+            'form_params' => [
                 'cleartext_password' => $password,
             ],
         ]);

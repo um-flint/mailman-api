@@ -118,7 +118,7 @@ class MembersTest extends \PHPUnit\Framework\TestCase
         ];
         
         $this->client->allows()->post('members', [
-            'json' => [
+            'form_params' => [
                 'list_id'       => 'http://ant.example.com',
                 'subscriber'    => 'aperson@example.com',
                 'display_name'  => 'Aye Person',
