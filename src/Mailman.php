@@ -50,7 +50,7 @@ class Mailman
      */
     protected function createClient(): Client
     {
-        $baseUri = trim($this->baseUri, '/') . $this->version . '/';
+        $baseUri = trim($this->baseUri, '/') . '/' . trim($this->version, '/') . '/';
 
         return new Client([
             'base_uri' => $baseUri,
