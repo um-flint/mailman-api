@@ -42,7 +42,7 @@ class Endpoint
      * @param array  $options
      * @return array
      */
-    protected function clientGet(string $uri, array $options = []): array
+    protected function clientGet(string $uri, array $options = []): ?array
     {
         return $this->getData($this->client->get($uri, $options));
     }
@@ -55,7 +55,7 @@ class Endpoint
      * @param array  $options
      * @return array
      */
-    protected function clientHead(string $uri, array $options = []): array
+    protected function clientHead(string $uri, array $options = []): ?array
     {
         return $this->getData($this->client->head($uri, $options));
     }
@@ -68,7 +68,7 @@ class Endpoint
      * @param array  $options
      * @return array
      */
-    protected function clientPut(string $uri, array $options = []): array
+    protected function clientPut(string $uri, array $options = []): ?array
     {
         return $this->getData($this->client->put($uri, $options));
     }
@@ -81,7 +81,7 @@ class Endpoint
      * @param array  $options
      * @return array
      */
-    protected function clientPost(string $uri, array $options = []): array
+    protected function clientPost(string $uri, array $options = []): ?array
     {
         return $this->getData($this->client->post($uri, $options));
     }
@@ -94,7 +94,7 @@ class Endpoint
      * @param array  $options
      * @return array
      */
-    protected function clientPatch(string $uri, array $options = []): array
+    protected function clientPatch(string $uri, array $options = []): ?array
     {
         return $this->getData($this->client->patch($uri, $options));
     }
@@ -107,7 +107,7 @@ class Endpoint
      * @param array  $options
      * @return array
      */
-    protected function clientDelete(string $uri, array $options = []): array
+    protected function clientDelete(string $uri, array $options = []): ?array
     {
         return $this->getData($this->client->delete($uri, $options));
     }
