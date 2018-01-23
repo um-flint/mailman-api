@@ -33,6 +33,13 @@ class Lists extends Endpoint
         return $this->clientGet('lists', $options);
     }
 
+    /**
+     * Get list information by the name.
+     *
+     * @author Donald Wilcox <dowilcox@umflint.edu>
+     * @param string $name
+     * @return array|null
+     */
     public function find(string $name)
     {
         return $this->clientGet("lists/{$name}");
