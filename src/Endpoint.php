@@ -27,9 +27,9 @@ class Endpoint
      *
      * @author Donald Wilcox <dowilcox@umflint.edu>
      * @param Response $response
-     * @return array
+     * @return array|null
      */
-    private function getData(Response $response): array
+    private function getData(Response $response): ?array
     {
         return json_decode($response->getBody(), 1);
     }
