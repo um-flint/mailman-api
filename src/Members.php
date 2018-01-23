@@ -102,10 +102,10 @@ class Members extends Endpoint
      *
      * @author Donald Wilcox <dowilcox@umflint.edu>
      * @see    http://mailman.readthedocs.io/en/release-3.1/src/mailman/rest/docs/membership.html#leaving-a-mailing-list
-     * @param int $memberId
+     * @param string $memberId
      * @return array
      */
-    public function unsubscribe(int $memberId)
+    public function unsubscribe(string $memberId)
     {
         return $this->clientDelete("members/{$memberId}");
     }
