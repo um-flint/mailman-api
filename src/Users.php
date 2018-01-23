@@ -7,7 +7,7 @@ use UMFlint\Mailman\Traits\ValidatesEmail;
 class Users extends Endpoint
 {
     use ValidatesEmail;
-
+    
     /**
      * Get all users.
      *
@@ -17,21 +17,21 @@ class Users extends Endpoint
      * @param int|null $page
      * @return array
      */
-    public function all(?int $count, ?int $page)
+    public function all(?int $count = null, ?int $page = null)
     {
         $options = [];
-
+        
         if (!is_null($count)) {
             $options['query']['count'] = $count;
         }
-
+        
         if (!is_null($page)) {
             $options['query']['page'] = $page;
         }
-
+        
         return $this->clientGet('users', $options);
     }
-
+    
     /**
      * Find a user by their email.
      *
@@ -43,41 +43,41 @@ class Users extends Endpoint
     public function find(string $email)
     {
         $this->validateEmail($email);
-
+        
         return $this->clientGet("users/{$email}");
     }
-
+    
     /**
      * Create a new user.
      *
      * @author Donald Wilcox <dowilcox@umflint.edu>
      * @see    http://mailman.readthedocs.io/en/release-3.1/src/mailman/rest/docs/users.html#creating-users
-     * @param string      $email
+     * @param string $email
      * @param null|string $displayName
      * @param null|string $password
      * @return array
      * @throws \Exception
      */
-    public function create(string $email, ?string $displayName, ?string $password)
+    public function create(string $email, ?string $displayName = null, ?string $password = null)
     {
         $this->validateEmail($email);
         $data = [
             'email' => $email,
         ];
-
+        
         if (!is_null($displayName)) {
             $data['display_name'] = $displayName;
         }
-
+        
         if (!is_null($password)) {
             $data['password'] = $password;
         }
-
+        
         return $this->clientPost('users', [
             'json' => $data,
         ]);
     }
-
+    
     /**
      * Update a users display name.
      *
@@ -91,14 +91,14 @@ class Users extends Endpoint
     public function updateDisplayName(string $email, string $displayName)
     {
         $this->validateEmail($email);
-
+        
         return $this->clientPatch("users/{$email}", [
             'json' => [
                 'display_name' => $displayName,
             ],
         ]);
     }
-
+    
     /**
      * Update a users password.
      *
@@ -112,14 +112,14 @@ class Users extends Endpoint
     public function updatePassword(string $email, string $password)
     {
         $this->validateEmail($email);
-
+        
         return $this->clientPatch("users/{$email}", [
             'json' => [
                 'cleartext_password' => $password,
             ],
         ]);
     }
-
+    
     /**
      * Delete a user.
      *
@@ -132,7 +132,7 @@ class Users extends Endpoint
     public function delete(string $email)
     {
         $this->validateEmail($email);
-
+        
         return $this->clientDelete("users/{$email}");
     }
 }
