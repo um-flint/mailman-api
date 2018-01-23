@@ -39,7 +39,7 @@ class Lists extends Endpoint
     }
 
     /**
-     * Get the membbers of a list.
+     * Get the members of a list.
      *
      * @author Donald Wilcox <dowilcox@umflint.edu>
      * @see    http://mailman.readthedocs.io/en/release-3.1/src/mailman/rest/docs/membership.html#paginating-over-member-records

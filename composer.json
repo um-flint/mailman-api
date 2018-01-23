@@ -1,5 +1,5 @@
 {
-    "name": "um-flint/mailman-connector",
+    "name": "um-flint/mailman-api",
     "description": "A PHP package to manage users in mailman.",
     "require": {
         "php": ">=7.1.0",

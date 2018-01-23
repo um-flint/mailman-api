@@ -9,6 +9,15 @@ class Members extends Endpoint
 {
     use ValidatesDomain, ValidatesEmail;
 
+    /**
+     * Get all members.
+     *
+     * @author Donald Wilcox <dowilcox@umflint.edu>
+     * @see http://mailman.readthedocs.io/en/release-3.1/src/mailman/rest/docs/membership.html#membership
+     * @param int|null $count
+     * @param int|null $page
+     * @return array
+     */
     public function all(?int $count, ?int $page)
     {
         $options = [];
