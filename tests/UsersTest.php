@@ -91,7 +91,7 @@ class UsersTest extends \PHPUnit\Framework\TestCase
         ];
         
         $this->client->allows()->post('users', [
-            'json' => [
+            'form_params' => [
                 'email'        => 'aperson@example.com',
                 'display_name' => 'Aye Person',
                 'password'     => '',
@@ -113,7 +113,7 @@ class UsersTest extends \PHPUnit\Framework\TestCase
         ];
         
         $this->client->allows()->patch('users/aperson@example.com', [
-            'json' => [
+            'form_params' => [
                 'display_name' => 'Aye Persons Email',
             ],
         ])->andReturns(new \GuzzleHttp\Psr7\Response(200, [], json_encode($data)));
@@ -133,7 +133,7 @@ class UsersTest extends \PHPUnit\Framework\TestCase
         ];
         
         $this->client->allows()->patch('users/aperson@example.com', [
-            'json' => [
+            'form_params' => [
                 'cleartext_password' => 'thisisnotasafepassword',
             ],
         ])->andReturns(new \GuzzleHttp\Psr7\Response(200, [], json_encode($data)));

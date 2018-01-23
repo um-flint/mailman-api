@@ -88,7 +88,7 @@ class Lists extends Endpoint
         }
         
         return $this->clientPost('lists', [
-            'json' => $data,
+            'form_params' => $data,
         ]);
     }
     

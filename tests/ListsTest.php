@@ -141,7 +141,7 @@ class ListsTest extends \PHPUnit\Framework\TestCase
         ];
         
         $this->client->allows()->post('lists', [
-            'json' => [
+            'form_params' => [
                 'fqdn_listname' => 'bee@example.com',
                 'style_name'    => 'legacy-announce',
             ],
