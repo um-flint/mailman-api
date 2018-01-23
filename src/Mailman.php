@@ -33,29 +33,33 @@ class Mailman
      * @param       $baseUri
      * @param       $version
      * @param array $auth
+     * @param array $options
      */
-    public function __construct($baseUri, $version, array $auth)
+    public function __construct($baseUri, $version, array $auth, array $options = [])
     {
         $this->baseUri = $baseUri;
         $this->version = $version;
         $this->auth = $auth;
-        $this->client = $this->createClient();
+        $this->client = $this->createClient($options);
     }
 
     /**
      * Create a new Guzzle client.
      *
      * @author Donald Wilcox <dowilcox@umflint.edu>
+     * @param array $options
      * @return Client
      */
-    protected function createClient(): Client
+    protected function createClient(array $options): Client
     {
         $baseUri = trim($this->baseUri, '/') . '/' . trim($this->version, '/') . '/';
 
-        return new Client([
+        $options = array_merge_recursive($options, [
             'base_uri' => $baseUri,
             'auth'     => $this->auth,
         ]);
+
+        return new Client($options);
     }
 
     /**
