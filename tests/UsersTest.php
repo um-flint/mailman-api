@@ -17,7 +17,7 @@ class UsersTest extends \PHPUnit\Framework\TestCase
      *
      * @author Tyler Elton <telton@umflint.edu>
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->client = Mockery::mock(\GuzzleHttp\Client::class);
