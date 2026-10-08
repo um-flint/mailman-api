@@ -3,7 +3,7 @@
 namespace UMFlint\Mailman;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 
 class Endpoint
 {
@@ -26,12 +26,12 @@ class Endpoint
      * Get the data from the response.
      *
      * @author Donald Wilcox <dowilcox@umflint.edu>
-     * @param Response $response
+     * @param ResponseInterface $response
      * @return array|null
      */
-    private function getData(Response $response): ?array
+    private function getData(ResponseInterface $response): ?array
     {
-        return json_decode($response->getBody(), 1);
+        return json_decode((string) $response->getBody(), true);
     }
 
     /**

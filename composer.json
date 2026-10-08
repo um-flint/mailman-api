@@ -3,7 +3,7 @@
     "description": "A PHP package to manage users in mailman.",
     "require": {
         "php": "^8.0",
-        "guzzlehttp/guzzle": "~6.0||~7.0"
+        "guzzlehttp/guzzle": "~6.0||~7.0||^8.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~9.0||~10.0",
